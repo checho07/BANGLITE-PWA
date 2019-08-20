@@ -14,15 +14,25 @@ import { MatToolbarModule,
   MatButtonModule,
   MatTableModule,
   MatDividerModule,
-  MatProgressSpinnerModule } from '@angular/material';
+  MatProgressSpinnerModule,  
+  MatSnackBarModule,
+  MatFormFieldModule,
+  MatInputModule} from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
-import { NgxUiLoaderModule } from  'ngx-ui-loader';
-
+import { NgxUiLoaderModule} from 'ngx-ui-loader';
+import {MatDialogModule} from '@angular/material/dialog';
+import { LoginDialogComponent } from './Modals/login-dialog/login-dialog.component';
+import { RegisterDialogComponent } from './Modals/register-dialog/register-dialog.component';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from 'src/environments/environment';
 
   // PATHS
 const routes: Routes = [
     { path: '', component: LoginComponent},
-    { path: 'slides', loadChildren: './slides/slides.module#SlidesModule'}
+    { path: 'slides', loadChildren: './slides/slides.module#SlidesModule'},
+    { path: 'forms',loadChildren:'./reg-forms/reg-forms.module#RegFormsModule'}
   ];
 
 
@@ -31,10 +41,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
+    LoginDialogComponent,
+    RegisterDialogComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
     RouterModule.forRoot(routes, {useHash: true}),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,    
+    AngularFirestoreModule.enablePersistence(),
     FlexLayoutModule,
     FormsModule, ReactiveFormsModule,
     MatToolbarModule,
@@ -42,13 +57,19 @@ const routes: Routes = [
     MatIconModule,
     MatCardModule,
     MatButtonModule,
+    MatSnackBarModule,
     MatTableModule,
+    MatFormFieldModule,
     MatDividerModule,
+    MatDialogModule,
+    MatInputModule,
     MatProgressSpinnerModule,
     LayoutModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    
   ],
   providers: [],
+  entryComponents: [LoginDialogComponent,RegisterDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

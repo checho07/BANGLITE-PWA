@@ -4,5 +4,5 @@ export interface Styleloginproperties {
     left?: string;
     translate?: string;
     height?: string;
-    top?:string;
+    top?: string;
 }

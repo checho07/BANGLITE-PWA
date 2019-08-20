@@ -1,0 +1,50 @@
+
+
+
+
+<h1 mat-dialog-title class="dialog-title">Iniciar sesión</h1>
+<form [formGroup]="loginForm" (ngSubmit)="login($event)" >
+<div mat-dialog-content class="formContainer">  
+ 
+      <p>
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Correo</mat-label>
+            <input matInput placeholder="Correo" formControlName="email" required type='email'>
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-hint>ejemplo@dominio.com</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" required color="warn">
+              <mat-label>Contraseña</mat-label>
+              <input matInput placeholder="Contraseña" formControlName="password" required [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>            
+              <mat-hint>pass1234</mat-hint>
+            </mat-form-field>
+            <mat-error>{{error}}</mat-error>
+          </p>
+          <p><a mat-button  (click)="showRecoveryPass = !showRecoveryPass" >¿Olvidastes tu contraseña?</a></p>
+      
+         
+
+</div>
+<div mat-dialog-actions color="accent">
+  <button mat-stroked-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button  mat-raised-button color="warn"  [disabled]="!loginForm.valid" >Entrar</button>
+</div>
+</form>
+
+<div *ngIf="showRecoveryPass" >
+    <mat-divider></mat-divider>
+    <p>
+        <mat-form-field appearance="outline" color="warn">
+          <mat-label>Correo a recuperar</mat-label>
+          <input matInput placeholder="Correo" [(ngModel)]="recoverEmail" type="email">
+          <mat-icon matSuffix>alternate_email</mat-icon>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button color="warn" (click)="recoverPass()" >Enviar</button>
+</div>
+

@@ -2,20 +2,24 @@
 
 
 
-    <!-- <img src="assets/backgrounds/BOTON.png" > -->
+ 
 <div class="container">
        
-        <div id="principalimgDiv">    
+        <div id="principalimgDiv">   
+         
                
             <img alt="Home Image" src="https://firebasestorage.googleapis.com/v0/b/banglite.appspot.com/o/PantalllaInicio.png?alt=media&token=59230089-5c9c-4bd5-ab9b-54b83f40e407" 
             [ngStyle]="{'width': styleproperties.width,'position':styleproperties.position,'left':styleproperties.left,'height':styleproperties.height}" 
             id="principalimg" class="el" >
             <div id='divLogin'>          
-            <button id='btnLogin' class="el"
-            [ngStyle]="{'top': btnLoginProperties.top, 'width': btnLoginProperties.width}" > </button>
+                <button id='btnLogin' class="els"  (click)="loginFn($event)" 
+                 [ngStyle]="{'top': btnLoginProperties.top, 'width': btnLoginProperties.width,'left':btnLoginProperties}" > </button>
              </div>
-            <button id='btnRegister' 
-            [ngStyle]="{'top': btnRegisterProperties.top, 'width': btnRegisterProperties.width}" > </button>
+             <div id='divRegister'>
+                 <button id='btnRegister' (click)="RegisterFn($event)" 
+                 [ngStyle]="{'top': btnRegisterProperties.top, 'width': btnRegisterProperties.width}" > </button>
+               
+             </div>
         </div>
 </div>
 

@@ -1,3 +1,5 @@
+import { AuthServiceService } from './Services/auth-service.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Component } from '@angular/core';
 
 
@@ -9,8 +11,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'BangLite';
 
-  constructor(){
+  constructor( private authService: AuthServiceService) {
+    // this.authService.afAuth.authState.subscribe((user: firebase.User) => {
+    //   if(user){
+        
+    //   }
+    // })
+  }
 
-  };
- 
 }

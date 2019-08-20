@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCuhUgaqcJk2OrSIF-CsCnTxHRSFKI4ye0",
+    authDomain: "banglite.firebaseapp.com",
+    databaseURL: "https://banglite.firebaseio.com",
+    projectId: "banglite",
+    storageBucket: "banglite.appspot.com",
+    messagingSenderId: "53725024997",
+    appId: "1:53725024997:web:2abba33355c54075"
+  }
 };
 
 /*

@@ -1,0 +1,49 @@
+
+
+<h1 mat-dialog-title class="dialog-title">Registro</h1>
+<form [formGroup]="RegisterForm" (ngSubmit)="register()" >
+<div mat-dialog-content class="formContainer">  
+ 
+      <p>
+          <mat-form-field appearance="outline" color="warn">
+            <mat-label>Nombre completo</mat-label>
+            <input matInput placeholder="Nombre completo" formControlName="name" required type='text'>
+            <mat-icon matSuffix>face</mat-icon>
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" required color="warn">
+              <mat-label>Correo</mat-label>
+              <input matInput placeholder="Correo" formControlName="email" required type="email">
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>            
+          </p>
+
+         <p>
+            <mat-form-field  appearance="outline" required color="warn">
+                <mat-label>Contraseña</mat-label>                
+                <input matInput placeholder="Contraseña" formControlName="password">
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+         </p>
+         <p>
+            <td><mat-form-field  appearance="outline" required color="warn">
+                <mat-label>Confirmar contraseña</mat-label>
+                <input matInput placeholder="Confirmar contraseña" formControlName="password2">
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+         </p>
+      
+             
+           
+          
+      
+          <mat-error>{{error}}</mat-error>
+
+</div>
+<div mat-dialog-actions color="accent">
+  <button mat-stroked-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button  mat-raised-button color="warn" cdkFocusInitial [disabled]="!RegisterForm.valid" >Registrarse</button>
+</div>
+</form>
+

@@ -1,0 +1,14 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #4B2F49;
+  }
+
+.mat-dialog-container{
+    background-color: #230821 !important;
+}  
+  
+
+.formContainer> * {
+    width: 100%;
+  }

@@ -1,0 +1,11 @@
+#principalimg{
+    box-shadow: 2px 4px 56px -1px rgba(0,0,0,0.75);
+
+}
+#form{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background: red;
+    border: 2px solid red;
+ }
